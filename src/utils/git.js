@@ -26,13 +26,18 @@ let fetch = async (url) => {
 
 export let repoList = async () => {
   let config = await getAll();
+  //如果是私人仓库
+  //,config.type应该设置为users
+  //,config.registry应该是用户名
+  //https://api.github.com/users/fancierpj0/repos
   let api = `https://api.github.com/${config.type}/${config.registry}/repos`;
-  return await fetch(api);
+  return await fetch(api); //返回的是一个json
 };
 
 export let tagList = async (repo) => {
   let config = await getAll();
   //获取版本号
+  //https://api.github.com/repos/fancierpj0/antd-study-point/tags
   let api = `https://api.github.com/repos/${config.registry}/${repo}/tags`;
 
   return await fetch(api);
