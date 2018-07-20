@@ -54,12 +54,12 @@ export const download = async(src,dest) => {
   });
 };
 
-export const downloadLocal = async (projectType,version) => {
+export const downloadLocal = async (project,version) => {
   let conf = await getAll();
-  //只需要仓库名，会自动补全
-  let api = `${conf.registry}/${projectType}`;
+  //只需要用户名或则组织名以及仓库名，其余会自动补全
+  let api = `${conf.registry}/${project}`;
   if(version){
     api += `#${version}`;
   }
-  return await download(api, DOWNLOAD + '/' + projectType);
+  return await download(api, DOWNLOAD + '/' + project);
 };

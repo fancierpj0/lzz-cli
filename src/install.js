@@ -24,7 +24,7 @@ let install = async () => {
       //可选：list、input
       type: 'list'
       //该项选择的title，要选什么？
-      , name: 'projectType'
+      , name: 'project'
       //选择内容
       , choices: list
       , questions: 'please choice template'
@@ -32,7 +32,7 @@ let install = async () => {
   ]);
 
   //已经选择好创建哪种项目(模板)
-  let project = answer.projectType;
+  let project = answer.project;
 
   // === 选择版本号 ===
   loading = ora('fetching tag...');
